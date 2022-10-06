@@ -1,0 +1,6 @@
+ 
+
+rootProject.name = 'javacro-22-kafka-pipelines'
+
+include 'readers-simulator'
+include 'application'

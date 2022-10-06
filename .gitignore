@@ -1,0 +1,6 @@
+# Project exclude paths
+/.gradle/
+/.idea/
+/application/build/
+/readers-simulator/.gradle/
+/readers-simulator/build/

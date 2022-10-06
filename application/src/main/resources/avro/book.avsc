@@ -1,0 +1,36 @@
+{
+  "type": "record",
+  "name": "BookRecord",
+  "namespace": "digital.porsche.ib.javacro2022.kafka_pipelines.domain.model.book",
+  "fields": [
+    {
+      "name": "id",
+      "type": "long"
+    },
+    {
+      "name": "author",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "isbn",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "title",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    }
+  ],
+  "connect.name": "digital.porsche.ib.javacro2022.kafka_pipelines.domain.model.book.BookRecord"
+}

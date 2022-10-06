@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head"></head>
+
+<body>
+<h2>Players</h2>
+
+<div>
+  <p th:if="${booksPage.isEmpty()}">
+    No players registered
+  </p>
+
+  <ul th:unless="${booksPage.isEmpty()}">
+    <li th:each="book : ${booksPage}" th:text="${book.title}"></li>
+  </ul>
+
+</div>
+
+
+</body>
+</html>
