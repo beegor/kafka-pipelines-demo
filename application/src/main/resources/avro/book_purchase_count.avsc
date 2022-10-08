@@ -1,0 +1,21 @@
+{
+  "namespace": "digital.porsche.ib.javacro2022.kafka_pipelines.domain.model.book",
+  "type": "record",
+  "name": "BookPurchaseCountRecord",
+  "fields": [
+    {
+      "name": "book",
+      "type": "digital.porsche.ib.javacro2022.kafka_pipelines.domain.model.book.BookRecord"
+    },
+    {
+      "name": "count",
+      "type":  "long",
+      "default": 0
+    },
+    {
+      "name": "windowStart",
+      "type": "long",
+      "default": 0
+    }
+  ]
+}

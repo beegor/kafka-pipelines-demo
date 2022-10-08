@@ -1,0 +1,27 @@
+{
+  "namespace": "digital.porsche.ib.javacro2022.kafka_pipelines.domain.model.book",
+  "type": "record",
+  "name": "BookRatingRecord",
+  "fields": [
+    {
+      "name": "isbn",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "buyerId",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "rating",
+      "type": "int"
+    }
+  ]
+}

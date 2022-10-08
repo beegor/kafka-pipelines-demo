@@ -1,0 +1,19 @@
+docker exec -it ksqldb-cli ksql http://ksqldb-server:8088
+
+create stream book_ratings_stream with (kafka_topic='book_ratings', value_format='avro');
+
+CREATE TABLE book_ratings_avg AS
+  SELECT
+    brs.isbn, avg(brs.rating) AS avg_rating
+  FROM book_ratings_stream brs
+  GROUP BY isbn;
+
+
+CREATE TABLE book_ratings_avg with(key_format='AVRO') AS
+  SELECT
+    books.isbn,
+    books.title,
+    avg(brs.rating) AS avg_rating
+  FROM book_ratings_stream brs
+    LEFT JOIN books ON brs.isbn = books.isbn
+  GROUP BY books.isbn, books.title;

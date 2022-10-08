@@ -31,6 +31,7 @@ dependencies {
 	implementation("org.apache.kafka:kafka-clients")
 	implementation("org.apache.kafka:kafka-streams")
 	implementation("io.confluent:kafka-avro-serializer:7.2.1")
+	implementation("io.confluent:kafka-streams-avro-serde:7.2.1")
 	runtimeOnly("org.postgresql:postgresql")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

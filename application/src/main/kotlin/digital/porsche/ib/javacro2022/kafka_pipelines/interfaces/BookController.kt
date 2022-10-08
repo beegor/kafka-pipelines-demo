@@ -5,10 +5,7 @@ import digital.porsche.ib.javacro2022.kafka_pipelines.domain.model.book.BookRepo
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.*
 
 
 @Controller
@@ -25,17 +22,20 @@ class BookController(
         return "books"
     }
 
+
     @PostMapping("/purchase/{isbn}")
+    @ResponseBody
     fun purchaseBook(@PathVariable isbn: String) {
         bookService.bookPurchesed(isbn)
     }
 
     @PostMapping("/rate/{isbn}/{rating}")
-    fun purchaseBook(
+    @ResponseBody
+    fun rateBook(
         @PathVariable isbn: String,
         @PathVariable rating: Int
     ) {
-        bookService.bookPurchesed(isbn)
+        bookService.bookRated(isbn, rating)
     }
 
 
