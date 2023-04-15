@@ -96,14 +96,14 @@ Deploy the connector instance using following configuration:
 ```yaml
 {
     "name": "{{ _['elascit-connector'] }}",
-		"config": {
-			"connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
-			"tasks.max": "1",
-			"topics": "book_purchases_count,BOOK_RATINGS_AVG_ENRICHED",
-			"key.ignore": "false",
-			"connection.url": "http://elastic:9200",
-			"type.name": "_doc"
-		}
+        "config": {
+        "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
+        "tasks.max": "1",
+        "topics": "book_purchases_count,BOOK_RATINGS_AVG_ENRICHED",
+        "key.ignore": "false",
+        "connection.url": "http://elastic:9200",
+        "type.name": "_doc"
+        }
 }
 ```
 Send post request with this configuration as request body to http://localhost:8083/connectors  
