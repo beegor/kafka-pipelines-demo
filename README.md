@@ -120,7 +120,9 @@ Click "Create visualization" button.
 Select "book_purchases_count" index pattern in dropdown on the left side.  
 Drag "book.title.keyword" field to the "Horizontal axis" field on the right side of the page  
 Drag "count" field to the "Vertical axis" field on the right side of the page  
-Click "Save and return" button in the top left corner of the page.  
+Click "Save and return" button in the top left corner of the page.
+
+<img height="600" src="readme-images/kibana_1.png" title="Kibana dashboard" width="1000"/>
 
 Click "Create visualization" button again.  
 Select "book_ratings_avg_enriched" index pattern in dropdown on the left side.  
