@@ -53,7 +53,7 @@ class BookPurchaseProcessor(
 
         val timeWindowedCount = bookPurchaseStream
             .groupByKey()
-            .windowedBy(TimeWindows.ofSizeAndGrace(Duration.ofMinutes(1), Duration.ofSeconds(10)))
+            .windowedBy(TimeWindows.ofSizeAndGrace(Duration.ofMinutes(5), Duration.ofSeconds(10)))
             .count()
 
         val purchaseCountRecordStream = timeWindowedCount
@@ -61,7 +61,7 @@ class BookPurchaseProcessor(
             .map { key, value ->
                 val isbn = key.key()
                 val windowStart = key.window().start()
-                KeyValue(isbn, BookPurchaseCountRecord(BookRecord(), value, windowStart))
+                KeyValue(isbn, BookPurchaseCountRecord(BookRecord(0, "", "", ""), value, windowStart))
             }
 
         val booksTable = builder.table<String, BookRecord>(appProperties.booksTopic)
