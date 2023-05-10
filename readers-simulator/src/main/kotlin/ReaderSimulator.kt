@@ -36,14 +36,16 @@ class ReaderSimulator {
             while (!stopped.get()) {
                 simulatePurchase()
                 simulateRating()
-                Thread.sleep(1000)
+                Thread.sleep(100)
             }
         }
     }
 
     fun simulatePurchase(){
         println("Sending purchase request")
-        val randomIsbn = isbns[ Random.nextInt(0, isbns.size) ]
+
+        val start = if (System.currentTimeMillis() % 60000 < 30000) 0 else isbns.size / 2
+        val randomIsbn = isbns[ Random.nextInt(start, start + isbns.size / 2) ]
         val url = URI("http://localhost:8080/book/purchase/$randomIsbn")
         val request = HttpRequest.newBuilder(url).POST(HttpRequest.BodyPublishers.noBody()).build()
         httpClient.sendAsync(request) { resp ->
@@ -54,7 +56,8 @@ class ReaderSimulator {
 
     fun simulateRating(){
         println("Sending rating request")
-        val randomIsbn = isbns[ Random.nextInt(0, isbns.size) ]
+        val start = if (System.currentTimeMillis() % 60000 < 30000) 0 else isbns.size / 2
+        val randomIsbn = isbns[ Random.nextInt(start, start + isbns.size / 2) ]
         val randomRating = Random.nextInt(1, 6)
         val url = URI("http://localhost:8080/book/rate/$randomIsbn/$randomRating")
         val request = HttpRequest.newBuilder(url).POST(HttpRequest.BodyPublishers.noBody()).build()
